@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint NAME.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://guides.cocoapods.org/syntax/podspec.html
-#
 Pod::Spec.new do |s|
   s.name             = "ObjectivePatterns"
   s.version          = "0.1.0"
@@ -11,9 +5,11 @@ Pod::Spec.new do |s|
   s.homepage         = "http://github.com/hartdev/ObjectivePatterns"
   s.license          = 'MIT'
   s.author           = { "David Hart" => "david@hart-dev.com" }
-  s.source           = { :git => "http://github.com/hartdev/ObjectivePatterns.git", :tag => s.version.to_s }
+  s.source           = { :git => "https://github.com/hartdev/ObjectivePatterns.git", :tag => s.version.to_s }
 
   s.requires_arc = true
+  s.ios.deployment_target = "4.0"
+  s.osx.deployment_target = "10.7"
 
   s.source_files = 'Classes'
 
