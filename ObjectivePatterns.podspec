@@ -8,10 +8,10 @@ Pod::Spec.new do |s|
   s.name             = "ObjectivePatterns"
   s.version          = "0.1.0"
   s.summary          = "Useful design patterns implemented in Objective-C."
-  s.homepage         = "http://github.com/ObjectivePatterns"
+  s.homepage         = "http://github.com/hartdev/ObjectivePatterns"
   s.license          = 'MIT'
   s.author           = { "David Hart" => "david@hart-dev.com" }
-  s.source           = { :git => "http://github.com/ObjectivePatterns.git", :tag => s.version.to_s }
+  s.source           = { :git => "http://github.com/hartdev/ObjectivePatterns.git", :tag => s.version.to_s }
 
   s.requires_arc = true
 
