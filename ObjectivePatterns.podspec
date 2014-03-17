@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "ObjectivePatterns"
-  s.version          = "0.2.0"
+  s.version          = "0.3.0"
   s.summary          = "Useful design patterns implemented in Objective-C."
   s.homepage         = "http://github.com/hartdev/ObjectivePatterns"
   s.license          = 'MIT'
