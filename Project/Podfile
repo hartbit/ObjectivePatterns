@@ -1,3 +1,4 @@
+platform :ios, "4.0"
 pod "ObjectivePatterns", :path => "../ObjectivePatterns.podspec"
 
 target "ObjectivePatternsTests" do
