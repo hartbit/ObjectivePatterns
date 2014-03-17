@@ -1,0 +1,5 @@
+pod "ObjectivePatterns", :path => "../ObjectivePatterns.podspec"
+
+target "ObjectivePatternsTests" do
+	pod "OCMock"
+end
