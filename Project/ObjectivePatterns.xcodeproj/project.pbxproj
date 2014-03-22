@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B56D063818DE1C590062C1D0 /* OPTVisitorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B56D063718DE1C590062C1D0 /* OPTVisitorTests.m */; };
 		B5A8845918D64D5600BD9883 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A8845818D64D5600BD9883 /* XCTest.framework */; };
 		B5A8845A18D64D5600BD9883 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5A8844A18D64D5600BD9883 /* Foundation.framework */; };
 		B5A8847418D650E700BD9883 /* OPTStateMachineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B5A8847318D650E700BD9883 /* OPTStateMachineTests.m */; };
@@ -17,6 +18,7 @@
 		6EF749A449754CBEBA0C88BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		807BF5D2567A41E38D0D3D16 /* libPods-ObjectivePatternsTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ObjectivePatternsTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA61B9362FEC458A882A61F9 /* Pods-ObjectivePatternsTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ObjectivePatternsTests.xcconfig"; path = "Pods/Pods-ObjectivePatternsTests.xcconfig"; sourceTree = "<group>"; };
+		B56D063718DE1C590062C1D0 /* OPTVisitorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OPTVisitorTests.m; sourceTree = "<group>"; };
 		B5A8844A18D64D5600BD9883 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		B5A8845718D64D5600BD9883 /* ObjectivePatternsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObjectivePatternsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5A8845818D64D5600BD9883 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				B5A8847318D650E700BD9883 /* OPTStateMachineTests.m */,
+				B56D063718DE1C590062C1D0 /* OPTVisitorTests.m */,
 				B5A8846118D64D5600BD9883 /* Supporting Files */,
 			);
 			name = Tests;
@@ -183,6 +186,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B56D063818DE1C590062C1D0 /* OPTVisitorTests.m in Sources */,
 				B5A8847418D650E700BD9883 /* OPTStateMachineTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
