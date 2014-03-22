@@ -8,6 +8,9 @@
 @import Foundation;
 
 
+extern NSString* OPTErrorDomain;
+
+
 @protocol OPTStateMachineDelegate;
 
 @interface OPTStateMachine : NSObject
@@ -17,17 +20,19 @@
 
 - (id)initWithStartState:(NSString*)state;
 
-- (BOOL)canTransitionToState:(NSString*)state;
-- (void)transitionToState:(NSString*)state;
+- (BOOL)acceptsInput:(NSString*)input userInfo:(NSDictionary*)userInfo;
+- (void)feedInput:(NSString*)input userInfo:(NSDictionary*)userInfo error:(NSError*__autoreleasing*)error;
 
 @end
 
 
 @protocol OPTStateMachineDelegate <NSObject>
-@optional
 
-- (BOOL)stateMachine:(OPTStateMachine*)stateMachine shouldTransitionFromState:(NSString*)sourceState toState:(NSString*)destinationState;
-- (void)stateMachine:(OPTStateMachine*)stateMachine willTransitionToState:(NSString*)destinationState;
-- (void)stateMachine:(OPTStateMachine*)stateMachine didTransitionFromState:(NSString*)sourceState;
+@required
+- (NSString*)stateMachine:(OPTStateMachine*)stateMachine destinationStateFromState:(NSString*)sourceState withInput:(NSString*)input userInfo:(NSDictionary*)userInfo;
+
+@optional
+- (void)stateMachine:(OPTStateMachine*)stateMachine willTransitionToState:(NSString*)destinationState withInput:(NSString*)input userInfo:(NSDictionary*)userInfo;
+- (void)stateMachine:(OPTStateMachine*)stateMachine didTransitionFromState:(NSString*)sourceState withInput:(NSString*)input userInfo:(NSDictionary*)userInfo;
 
 @end

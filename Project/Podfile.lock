@@ -1,5 +1,5 @@
 PODS:
-  - ObjectivePatterns (0.2.0)
+  - ObjectivePatterns (0.3.0)
   - OCMock (2.2.3)
 
 DEPENDENCIES:
@@ -11,7 +11,7 @@ EXTERNAL SOURCES:
     :path: ../ObjectivePatterns.podspec
 
 SPEC CHECKSUMS:
-  ObjectivePatterns: 805dceeb0ca9ecf2f3e30ff8fa4358867ce441c3
+  ObjectivePatterns: 65f88bfa537bbf5b612fdbeee25134f84351a93b
   OCMock: 74e4ddbcef134170dcc844f91c691f13868075d7
 
 COCOAPODS: 0.29.0

@@ -8,6 +8,9 @@
 #import "OPTStateMachine.h"
 
 
+NSString* OPTErrorDomain = @"OPTErrorDomain";
+
+
 @interface OPTStateMachine ()
 
 @property (nonatomic) NSString* currentState;
@@ -34,34 +37,41 @@
 
 #pragma mark - Public Methods
 
-- (BOOL)canTransitionToState:(NSString*)state
+- (BOOL)acceptsInput:(NSString*)input userInfo:(NSDictionary*)userInfo
 {
-	if ([state length] == 0) {
-		[NSException raise:NSInvalidArgumentException format:@"Invalid state"];
+	if (!self.delegate) {
+		[NSException raise:NSInternalInconsistencyException format:@"You must provide a valid delegate"];
 	}
 	
-	if ([self.delegate respondsToSelector:@selector(stateMachine:shouldTransitionFromState:toState:)]) {
-		return [self.delegate stateMachine:self shouldTransitionFromState:self.currentState toState:state];
-	} else {
-		return YES;
-	}
+	return [[self.delegate stateMachine:self destinationStateFromState:self.currentState withInput:input userInfo:userInfo] length] > 0;
 }
 
-- (void)transitionToState:(NSString*)state
+- (void)feedInput:(NSString*)input userInfo:(NSDictionary*)userInfo error:(NSError*__autoreleasing*)error
 {
-	if (![self canTransitionToState:state]) {
-		[NSException raise:NSInternalInconsistencyException format:@"Can not transition to state '%@'", state];
+	if (!self.delegate) {
+		[NSException raise:NSInternalInconsistencyException format:@"You must provide a valid delegate"];
 	}
 	
-	if ([self.delegate respondsToSelector:@selector(stateMachine:willTransitionToState:)]) {
-		[self.delegate stateMachine:self willTransitionToState:state];
+	NSString* destinationState = [self.delegate stateMachine:self destinationStateFromState:self.currentState withInput:input userInfo:userInfo];
+	
+	if ([destinationState length] == 0) {
+		if (error) {
+			NSDictionary* userInfo = @{NSLocalizedDescriptionKey: [NSString stringWithFormat:@"Invalid destination state: %@", destinationState]};
+			*error = [NSError errorWithDomain:OPTErrorDomain code:-1 userInfo:userInfo];
+		}
+		
+		return;
+	}
+	
+	if ([self.delegate respondsToSelector:@selector(stateMachine:willTransitionToState:withInput:userInfo:)]) {
+		[self.delegate stateMachine:self willTransitionToState:destinationState withInput:input userInfo:userInfo];
 	}
 	
 	NSString* sourceState = self.currentState;
-	self.currentState = state;
+	self.currentState = destinationState;
 	
-	if ([self.delegate respondsToSelector:@selector(stateMachine:didTransitionFromState:)]) {
-		[self.delegate stateMachine:self didTransitionFromState:sourceState];
+	if ([self.delegate respondsToSelector:@selector(stateMachine:didTransitionFromState:withInput:userInfo:)]) {
+		[self.delegate stateMachine:self didTransitionFromState:sourceState withInput:input userInfo:userInfo];
 	}
 }
 

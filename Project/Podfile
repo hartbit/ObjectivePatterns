@@ -1,6 +1,6 @@
-platform :ios, "4.0"
-pod "ObjectivePatterns", :path => "../ObjectivePatterns.podspec"
+platform :ios, "5.0"
 
 target "ObjectivePatternsTests" do
+	pod "ObjectivePatterns", :path => "../ObjectivePatterns.podspec"
 	pod "OCMock"
 end
