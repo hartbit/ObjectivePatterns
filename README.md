@@ -3,11 +3,9 @@
 [![Version](http://cocoapod-badges.herokuapp.com/v/ObjectivePatterns/badge.png)](http://cocoadocs.org/docsets/ObjectivePatterns)
 [![Platform](http://cocoapod-badges.herokuapp.com/p/ObjectivePatterns/badge.png)](http://cocoadocs.org/docsets/ObjectivePatterns)
 
-## Usage
+## Features
 
-To run the example project; clone the repo, and run `pod install` from the Project directory first.
-
-## Requirements
+* `OPTStateMachine`: A (non-finite) state machine that accepts input strings and is configured through a delegate.
 
 ## Installation
 
@@ -15,6 +13,12 @@ ObjectivePatterns is available through [CocoaPods](http://cocoapods.org), to ins
 it simply add the following line to your Podfile:
 
     pod "ObjectivePatterns"
+
+##
+
+## Unit Tests
+
+To run the unit tests; clone the repo, and run `pod install` from the Project directory first.
 
 ## Author
 
